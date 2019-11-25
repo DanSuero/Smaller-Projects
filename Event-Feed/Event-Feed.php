@@ -64,7 +64,7 @@ function junction_center_event_shortcode( $attr = array() ){
 					<!-- Date:<?php echo $currentMeta["date"][0]; ?> -->
                     <h2><?php echo date("m/d/Y",strtotime($currentMeta["date"][0])); ?></h2>
                     
-                    <?php echo ($front_page)? "<a href=\"$data->guid\" class=\"img-link\">":""; ?>
+                    <?php echo ($front_page)? "<a href=\"$data->guid\" class=\"title-link\">":""; ?>
                     <h3><?php echo $data->post_title; ?></h3>
                     <?php echo ($front_page)? "</a>":""; ?>
                     
