@@ -104,25 +104,4 @@ function junction_center_event_shortcode( $attr = array() ){
     <?php
 }
 add_shortcode("JunctionEvents","junction_center_event_shortcode");
-
-function get_event_desc(){
-    global $post;
-    ?>
-        <p class="detail-img-wrapper"><img class="detail-img" src="<?php echo wp_get_attachment_image_url( get_post_meta($post->ID,'photo_large',true), 'large'); ?>" /></p>
-        <p><?php  echo get_post_meta($post->ID,'description',true); ?></p>
-    <?php
-}
-add_shortcode('JunctionDesc', 'get_event_desc');
-
-function buy_tickets(){
-    global $post;
-?>    
-    <div class="buy-wrapper">
-        <a class="btn buy-ticket" href="<?php echo get_post_meta($post->ID,'event-url',true); ?>" target="_blank">Tickets</a>
-    </div>
-<?php    
-}
-add_shortcode('BuyTickets', 'buy_tickets');
-
-?>
 ?>
