@@ -1,0 +1,691 @@
+//##Fonts
+$font-one: 'roboto', sans-serif;
+$font-two: 'noto serif',serif;
+$font-three: 'open sans', sans-serif;
+$font-four: 'nunito', sans-serif;
+$font-five: 'PT Serif', serif;
+$font-awesome: "Font Awesome 5 Free";
+
+
+//##Color Variable
+$lightBlGray: #f4f4f4;
+$lightBlue: #8eb3e2;
+$lightBlueAlt: #8eb3ea;
+$lightGray: #666;
+$darkGray: #2a2a2a;
+$redOrange: #fe5d26;
+$brightOrange: #ffb500;
+$brown: #7a5c58;
+$white: #fff;
+$linkColor: #2ea3f2;
+
+//##Preset media queries
+$xs: 575.98px;
+$sm: 767.98px;
+$md: 991.98px;
+$lg: 1199.98px;
+
+@mixin xs{
+    @media screen and (max-width: #{$xs}){
+        @content;
+    }
+}
+@mixin sm{
+    @media screen and (max-width: #{$sm}){
+        @content;
+    }
+}
+@mixin md{
+    @media screen and (max-width: #{$md}){
+        @content;
+    }
+}
+@mixin lg{
+    @media screen and (max-width: #{$lg}){
+        @content;
+    }
+}
+
+//##Custom boostrop like classes
+//#Spacing styles
+.wrapper{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.py-130{
+    $pad-size: 130px;
+    padding:{
+        bottom: $pad-size;
+        top: $pad-size;
+    }
+    @include lg{
+        $pad-size: 30px;
+        padding:{
+            bottom: $pad-size;
+            top: $pad-size;
+        }
+    }
+}
+.hr{
+    &-one{
+        background-color: $brightOrange;
+        border:none;
+        height: 2px;
+        margin:{ 
+            left: 0px;
+            top: 20px;
+            bottom: 20px;
+        }
+        width: 50px;
+    }
+
+    &-two{
+        @extend .hr-one;
+        width: 100px;
+    }
+    &-three{
+        border: none;
+        height: 1px;
+        background-color: #7EBEC5;
+    }
+}
+//#P styles
+.p{
+    &-one{
+        $size: 16px;
+        color: $lightGray;
+        font:{
+            family: $font-three;
+            size: $size;
+            weight: 500;
+        }
+        line-height: $size + 10px;
+        @include md{
+            $size: 14px;
+            font-size: $size;
+            line-height: $size + 10px;
+        }
+    }
+
+    &-two{
+        $size: 18px;
+        color: $brown;
+        font:{
+            family: $font-two;
+            size: $size;
+            weight: 700;
+        }
+        letter-spacing: 1px;
+        line-height: $size + 2px;
+    }
+}
+//#Header styles
+.h2-one{
+    $size: 26px;
+    color: $darkGray;
+    font:{
+        family: $font-two;
+        size: $size;
+        weight: 500;
+    }
+    line-height: $size;
+    @include xs{
+        br{
+            display: none;
+        }
+    }
+}
+
+.h2-two{
+    $size: 30px;
+    color: $brown;
+    font:{
+        family: $font-two;
+        size: $size;
+        weight: 700;
+    }
+    letter-spacing: 4px;
+    line-height: $size + 10px;
+     @include lg{
+        $size: 27px;
+        font-size: $size;
+        line-height: $size + 10px;
+    }
+    @include md{
+        $size: 18px;
+        font-size: $size;
+        line-height: $size + 10px;
+        br{
+            display: none;
+        }
+    }
+}
+
+.h2-three{
+    $size: 52px;
+    color: $darkGray;
+    font:{
+        family: $font-one;
+        size: $size;
+        weight: 700;
+    }
+    letter-spacing: 4px;
+    line-height: $size + 15px;
+    @include lg{
+        $size: 32px;
+        font-size: $size;
+        letter-spacing: 2px;
+        line-height: $size + 15px;
+    }
+    @include md{
+        $size: 24px;
+        font-size: $size;
+        letter-spacing: 2px;
+        line-height: $size + 15px;
+    }
+}
+
+.h3-one{
+    $size: 18px;
+    color: $darkGray;
+    font:{
+        family: $font-one;
+        size: $size;
+        weight: 700;
+    }
+    line-height: $size;
+    letter-spacing: 4px;
+}
+
+.h3-two{
+    $size: 30px;
+    color: $darkGray;
+    font:{
+        family: $font-three;
+        size: $size;
+        weight: 700;
+    }
+    line-height: $size;
+}
+
+.h3-three{
+    $size: 60px;
+    color: $lightBlueAlt;
+    font:{
+        family: $font-four;
+        size: $size;
+        weight: 500;
+    }
+    line-height: $size;
+    @include md{
+        $size: 40px;
+        font-size: $size;
+        line-height: $size;
+    }
+}
+
+.h3-four{
+    $size: 46px;
+    color: $lightBlueAlt;
+    font:{
+        family: $font-four;
+        size: $size;
+        weight: 500;
+    }
+    line-height: $size;
+}
+.h3-five{
+    $size: 16px;
+    color: $lightGray;
+    font:{
+        family: $font-three;
+        size: $size;
+        weight: 700;
+    }
+    line-height: $size;
+}
+
+.h4-one{
+    $size: 18px;
+    color: $brown;
+    font:{
+        family: $font-two;
+        size: $size;
+        weight: 700;
+    }
+    line-height: $size;
+    @include md{
+        $size: 14px;
+        font-size: $size;
+        line-height: $size;
+    }
+}
+.h4-two{
+    $size: 60px;
+    color: $darkGray;
+    font:{
+        family: $font-one;
+        size: $size;
+        weight: 500;
+    }
+    line-height: $size;
+    @include md{
+        $size: 50px;
+        font-size: $size;
+        line-height: $size;
+    }
+    a{
+        font-weight: 500;
+    }
+}
+
+.ul{
+    &-one{
+        list-style: none;
+        padding-left: 1rem;
+        li{
+            margin-bottom: 1rem;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+    &-two{
+        padding-left: 1.5rem;
+        li{
+            $size: 16px;
+            color: $lightGray;
+            font:{
+                family: $font-three;
+                size: $size;
+                weight: 500;
+            }
+            line-height: $size + 10px;
+            @include md{
+                $size: 14px;
+                font-size: $size;
+                line-height: $size + 10px;
+            }
+            a{
+                @extend .a-one;
+            }
+        }
+    }
+}
+//#CTA styles
+.cta-one{
+    $px: 20px;
+    $py: 6px;
+    $size: 20px;
+    color: $redOrange;
+    border:{
+        color: $redOrange;
+        style: solid;
+        radius: 3px;
+        width: 2px;
+    }
+    display: inline-block;
+    font: {
+        family: $font-three;
+        size: $size;
+    }
+    line-height: $size + 15px;
+    padding: {
+        bottom: $py;
+        left: $px;
+        right: $px;
+        top: $py;
+    }
+    position: relative;
+    transition: padding 0.2s ease, background 0.3s ease;
+    
+    &::after{
+        content: "\f105";
+        font:{
+            family: $font-awesome;
+            weight: 900;
+        }
+        line-height: 37px;
+        position: absolute;
+        opacity: 0;
+        right: 50px;
+        transition: right 0.2s ease, opacity 0.2s ease;
+    }
+    &:hover{
+        color: $redOrange;
+        background-color: #e8e8e8;
+        padding:{
+            left: 15px;
+            right: 40px;
+        }
+        text-decoration: none;
+        transition: padding 0.2s ease, background 0.3s ease;
+        &:after{
+            opacity: 1;
+            right: 15px;
+            transition: right 0.2s ease, opacity 0.2s ease;
+        }
+    }
+    @include sm{
+        $size: 18px;
+        font-size: $size;
+        line-height: $size + 15px;
+        &::after{
+            line-height: $size + 15px;
+        }
+    }
+}
+
+.cta-two{
+    $px: 20px;
+    $py: 6px;
+    $size: 20px;
+    color: $white;
+    background-color: $redOrange;
+    border-radius: 100px;
+    display: inline-block;
+    font: {
+        family: $font-three;
+        size: $size;
+    }
+    line-height: $size + 15px;
+    padding: {
+        bottom: $py;
+        left: $px;
+        right: $px;
+        top: $py;
+    }
+    position: relative;
+    transition: padding 0.2s ease;
+    
+    &::after{
+        content: "\f105";
+        font:{
+            family: $font-awesome;
+            weight: 900;
+        }
+        line-height: 37px;
+        position: absolute;
+        opacity: 0;
+        right: 50px;
+        transition: right 0.2s ease, opacity 0.2s ease;
+    }
+    &:hover{
+        color: $white;
+        padding:{
+            left: 15px;
+            right: 35px;
+        }
+        text-decoration: none;
+        transition: padding 0.2s ease;
+        &:after{
+            opacity: 1;
+            right: 15px;
+            transition: right 0.2s ease, opacity 0.2s ease;
+        }
+    }
+}
+
+.cta-three{
+    $px: 20px;
+    $py: 4px;
+    $size: 18px;
+    color: $white;
+    background-color: $redOrange;
+    border:{
+        color: #ccc;
+        style: solid;
+        radius: 100px;
+        width: 2px;
+    }
+    display: inline-block;
+    font: {
+        family: $font-one;
+        size: $size;
+        weight: 700;
+    }
+    letter-spacing: 2px;
+    line-height: $size + 15px;
+    padding: {
+        bottom: $py;
+        left: $px;
+        right: $px;
+        top: $py;
+    }
+    position: relative;
+    transition: border 0.2s ease, background 0.2s ease;
+    
+   
+    &:hover{
+        color: $white;
+        background-color: #ce4f00;
+        border-color:#ffb500;
+        text-decoration: none;
+        transition: border 0.2s ease, background 0.2s ease;
+    }
+}
+
+.a-one{ 
+    $size: 16px;
+    color: #2ea3f2;
+    font:{
+        family: $font-three;
+        size: $size;
+        weight: 500;
+    }
+    &:hover{
+        color: #2ea3f2;
+        text-decoration: none;
+    }
+}
+
+//##Fixed styles
+html body{ font-size: 18px; }
+
+.top-sec{
+    background-color: $lightBlGray;
+}
+
+.food{
+    padding-bottom: 230px;
+    @extend .top-sec;
+    img.w-100{ opacity: 0; }
+    .align-self-center{ position: relative; z-index: 2; }
+    @include lg{
+        padding-bottom: 3rem;
+        br{ display: none; }
+    }
+}
+
+.bot-sec{
+    @extend .top-sec;
+}
+
+.top-food{
+    position: absolute;
+    left: 0;
+    right:0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    @include xs{
+        left:auto;
+        right: auto;
+    }
+}
+
+.title{
+    $size: 70px;
+    color: $lightBlue;
+    font:{
+        family: $font-two;
+        size: $size;
+        weight: 700;
+    }
+    letter-spacing: 4px;
+    line-height: $size + 10px;
+    @include lg{
+        $size: 60px;
+        font-size: $size;
+        line-height: $size + 10px;
+    }
+    @include xs{
+        $size: 40px;
+        font-size: $size;
+        line-height: $size + 10px;
+    }
+}
+
+.blockquote{
+    border: 0;
+    background: none;
+}
+
+.quote{
+    $size: 30px;
+    color: $darkGray;
+    font:{
+        family: $font-five;
+        size: $size;
+        style: italic;
+    }
+    line-height: $size + 10px;
+    @include md{
+        br{display: none;}
+    }
+}
+
+.quote-two{
+    @extend .blockquote;
+    background-color: $lightBlGray;
+    color: $lightGray;
+    
+    &::before{
+        $size: 18px;
+        content: "\f10e";
+        background-color: $lightBlGray;
+        border: {
+            radius: 100px;
+            width: 3px;
+            style: solid;
+            color: $lightGray;
+        }
+        display: table;
+        font:{
+            family: $font-awesome;
+            size: $size;
+            weight: 700;
+        }
+        line-height: $size;
+        text-align: center;
+        margin: {
+             top: -30px;
+            right: auto;
+            left: auto;
+        }
+        padding:{
+            top: 7px;
+            right: 9px;
+            bottom: 8px;
+            left: 6px;
+        }
+    }
+    
+    
+    h3{
+        color: $darkGray;
+        font: {
+            family: $font-two;
+            size: 22px;
+            style: normal;
+            weight: 700;
+        }
+    }
+    ul{
+        padding-left: 1rem;
+        li{
+            color: $lightGray;
+            font: {
+                family: $font-three;
+                size: 14px;
+                style: normal;
+                weight: 500;
+            }
+            a{
+                color: #2ea3f2;
+                font-weight: 500;
+                &:hover{
+                    color: #2ea3f2;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    footer{
+        color: $darkGray;
+        font:{
+            family: $font-three;
+            size:14px;
+            style: normal;
+            weight: 700;
+        }
+        &::before{
+            
+            content: "";
+        }
+    }
+}
+
+.lessons-list{
+    color: $lightGray;
+    padding-left: 2rem;
+    li{
+        font:{
+            family: $font-three;
+            
+        }
+        a{ 
+            color: $linkColor;
+            font:{
+                size: 16px;
+                weight: 500;
+            }
+            &:hover{
+                color: $linkColor;
+            }
+            @include md{ 
+                $size: 14px;
+                font-size: $size;
+                line-height: $size;
+            }
+        }
+    }
+}
+
+div.divTableHead{
+    background-color: $lightBlue;
+    border: solid 1px $lightBlue !important;
+}
+div.divTableCell.frontcell{
+    background-color: $lightBlGray;
+    border: solid 1px $lightBlGray !important;
+}
+div.divTableCell{
+    border: solid 1px $lightBlGray !important;
+    border-collapse: collapse;
+    a{
+        @extend .a-one;
+    }
+}
+
+.table{
+    td{
+        border-color: #eee;
+        border-collapse: collapse;
+        @include md {
+            &:first-child{
+                display: none;
+            }
+        }
+    }
+}
