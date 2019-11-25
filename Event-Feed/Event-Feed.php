@@ -60,14 +60,14 @@ function junction_center_event_shortcode( $attr = array() ){
                         echo ($front_page)? "</a>":"";
                     ?>
                 </div>
-                <div class="txt-section">
-					<!-- Date:<?php echo $currentMeta["date"][0]; ?> -->
+                <div class="text-section">
+					
                     <h2><?php echo date("m/d/Y",strtotime($currentMeta["date"][0])); ?></h2>
-                    
+                    <h3>
                     <?php echo ($front_page)? "<a href=\"$data->guid\" class=\"title-link\">":""; ?>
-                    <h3><?php echo $data->post_title; ?></h3>
+                    <?php echo $data->post_title; ?>
                     <?php echo ($front_page)? "</a>":""; ?>
-                    
+                    </h3>
                     <?php if($currentMeta["subtitle"][0]): ?>
                     
                     <span class="subtitle"><?php echo $currentMeta["subtitle"][0]; ?>, </span>
@@ -76,7 +76,7 @@ function junction_center_event_shortcode( $attr = array() ){
 
                     <span class="location"><?php echo $currentMeta["location"][0]; ?></span>
                     
-                    <?php if(/*$currentMeta["description"][0]*/false): ?>
+                    <?php if(false): ?>
                     <div class="txt-body-secion">
                         <p class="description">
                             <?php echo $currentMeta["description"][0]; ?>
@@ -90,7 +90,7 @@ function junction_center_event_shortcode( $attr = array() ){
                         </div>
                         <div class="more-wrapper">
                             <a class="btn more-details" href="<?php echo $data->guid; ?>">
-                                <?php echo ($front_page)? "Event" : "" ; ?> Details
+                                <?php echo ($front_page)? "Event Details »" : "Details"; ?> 
                             </a>
                         </div>
                     </div>
@@ -104,4 +104,25 @@ function junction_center_event_shortcode( $attr = array() ){
     <?php
 }
 add_shortcode("JunctionEvents","junction_center_event_shortcode");
+
+function get_event_desc(){
+    global $post;
+    ?>
+        <p class="detail-img-wrapper"><img class="detail-img" src="<?php echo wp_get_attachment_image_url( get_post_meta($post->ID,'photo_large',true), 'large'); ?>" /></p>
+        <p><?php  echo get_post_meta($post->ID,'description',true); ?></p>
+    <?php
+}
+add_shortcode('JunctionDesc', 'get_event_desc');
+
+function buy_tickets(){
+    global $post;
+?>    
+    <div class="buy-wrapper">
+        <a class="btn buy-ticket" href="<?php echo get_post_meta($post->ID,'event-url',true); ?>" target="_blank">Tickets</a>
+    </div>
+<?php    
+}
+add_shortcode('BuyTickets', 'buy_tickets');
+
+?>
 ?>
