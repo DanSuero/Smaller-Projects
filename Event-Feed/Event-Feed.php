@@ -90,7 +90,7 @@ function junction_center_event_shortcode( $attr = array() ){
                         </div>
                         <div class="more-wrapper">
                             <a class="btn more-details" href="<?php echo $data->guid; ?>">
-                                <?php echo ($front_page)? "Event" : ; ?> Details
+                                <?php echo ($front_page)? "Event" : "" ; ?> Details
                             </a>
                         </div>
                     </div>
