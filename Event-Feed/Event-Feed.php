@@ -52,13 +52,21 @@ function junction_center_event_shortcode( $attr = array() ){
             <div class="card">
                 <div class="img-section">
                     <?php 
+                        
+                        echo ($front_page)? "<a href=\"$data->guid\" class=\"img-link\">":"";
+                        
                         echo (isset($currentMeta["photo_large"][0]))? wp_get_attachment_image( $currentMeta["photo_large"][0],'large') : "<img class='placeholder' src='//via.placeholder.com/800x533' />"; 
+                        
+                        echo ($front_page)? "</a>":"";
                     ?>
                 </div>
                 <div class="txt-section">
 					<!-- Date:<?php echo $currentMeta["date"][0]; ?> -->
                     <h2><?php echo date("m/d/Y",strtotime($currentMeta["date"][0])); ?></h2>
+                    
+                    <?php echo ($front_page)? "<a href=\"$data->guid\" class=\"img-link\">":""; ?>
                     <h3><?php echo $data->post_title; ?></h3>
+                    <?php echo ($front_page)? "</a>":""; ?>
                     
                     <?php if($currentMeta["subtitle"][0]): ?>
                     
@@ -81,7 +89,9 @@ function junction_center_event_shortcode( $attr = array() ){
                             <a class="btn buy-ticket" href="<?php echo $currentMeta['event-url'][0]; ?>" target="_blank">Tickets</a>
                         </div>
                         <div class="more-wrapper">
-                            <a class="btn more-details" href="<?php echo $data->guid; ?>">Details</a>
+                            <a class="btn more-details" href="<?php echo $data->guid; ?>">
+                                <?php echo ($front_page)? "Event" : ; ?> Details
+                            </a>
                         </div>
                     </div>
                 </div>
