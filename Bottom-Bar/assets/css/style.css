@@ -1,0 +1,85 @@
+/* ========================================================================== */
+
+.contact-bar{
+    background-color: #d40a08;
+    bottom: -60px;
+    height: 60px;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100vw;
+    z-index: 100;
+}
+
+.contact-container{
+    max-width: 320px;
+    margin: 0 auto;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    
+}
+
+.contact-row{
+    flex: 1;
+    text-align: center;
+}
+
+.contact-btn{
+    display: inline-block;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1.7px;
+    fill: #ffffff;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0);
+    padding: 5px 25px;
+    border-radius: 3px;
+    transition: all .3s;
+    text-transform: uppercase;
+    font-family: "Roboto", Sans-serif;
+}
+.contact-btn:hover, .contact-btn:focus{
+    color: #ffffff;
+    fill: #ffffff;
+    transform: scale(0.9);
+    transition: all .3s;
+}
+
+.contact-close{
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+    font-family: Arial, sans-serif;
+    
+    border-radius: 100%;
+    padding: 4px;
+    text-align: center;
+    height: 26px;
+    width: 26px;
+    
+    background-color: #fff3;
+    
+    position: absolute;
+    right: 7px;
+    top: 7px;
+}
+
+@keyframes contactBar{
+    from{ bottom: -60px; }
+    to{ bottom: 0px; }
+}
+
+@media screen and (max-width:575px){
+    .contact-bar.active{
+        animation-name: contactBar;
+        animation-delay: 4s;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease;
+    }
+}
+
